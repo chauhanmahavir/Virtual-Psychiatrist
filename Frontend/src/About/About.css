@@ -1,0 +1,41 @@
+.about_container {
+    height: 700px;
+    width: 70%;
+    display: block;
+    align-items: center;
+    background-color: #00000033;
+    margin: 8% auto;
+    border-radius: 100px;
+    z-index: -1;
+}
+
+.about_title {
+    text-align: center;
+    font-size: 60px;
+    padding-top: 20px;
+}
+
+.about_main_area {
+    width: 100%;
+    display: flex;
+}
+
+.about_text {
+    float: left;
+    width: 70%;
+    font-size: 30px;
+    text-align: justify;
+    padding: 80px;
+}
+
+.about_image {
+    float: right;
+    width: 30%;
+    height: 100%;
+    transform: translateY(40%);
+}
+
+.robot_emoji_icon {
+    height: 300px;
+    width: 300px;
+}

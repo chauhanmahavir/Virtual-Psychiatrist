@@ -1,0 +1,36 @@
+.menu {
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu_element{
+    cursor: pointer;
+    font-size: 30px;
+    padding: 10px;
+    margin: 7px;
+    color: #93939e;
+    text-decoration: none;
+}
+
+div.menu_element {
+    position: relative;
+}
+
+div.menu_element:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+div.menu_element:hover:before {
+    visibility: visible;
+    width: 100%;
+}
