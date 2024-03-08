@@ -1,0 +1,41 @@
+.landing_page_div {
+    width: 100%;
+}
+
+.robot_image {
+    height: 950px;
+    width: 800px;
+}
+
+.robot_image_div {
+    float:right; 
+    width: 50%;
+    margin-top: 5%;
+}
+
+.landing_page_intro_text {
+    float:left; 
+    width: 50%;
+    height: 100%;
+    
+}
+
+.landing_page_into_text_1 {
+    font-size: 70px;
+    margin-top: 30%;
+    padding: 50px;
+}
+
+/* .landing_page_container {
+    animation: fade 3s;
+}
+
+@keyframes fade {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+} */
+
+.navlink {
+    height: 100%;
+    width: 100%;
+}
