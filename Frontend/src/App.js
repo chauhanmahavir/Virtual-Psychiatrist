@@ -1,40 +1,57 @@
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LandingPage from './LandingPage/LandingPage';
-import About from './About/About';
-import Contact from './Contact/Contact';
-import SignUp from './SignUp/SignUp';
-import LogIn from './LogIn/LogIn';
-import Background from './Background/Background';
-import Menu from './Menu/Menu';
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "./LandingPage/LandingPage";
+import Contact from "./Contact/Contact";
+import SignUp from "./SignUp/SignUp";
+import LogIn from "./LogIn/LogIn";
+import Background from "./Background/Background";
+import Menu from "./Menu/Menu";
+import Chatscreen from "./Chatscreen/Chatscreen";
 
-function App() {
-  return (
-    <BrowserRouter>
-    <Background></Background>
-    <Menu></Menu>
-      <Routes>
-        
-        <Route path="/" element={<LandingPage />}>
-        </Route>
-        
-        <Route path="/about" element={<About />}>
-        </Route>
+import React, { Component } from "react";
+import History from "./History/History";
 
-        <Route path="/contact" element={<Contact />}>
-        </Route>
+export default class App extends Component {
+  constructor(props) {
+    super(props);
 
-        <Route path="/login" element={<LogIn />}>
-        </Route>
+    this.state = {
+      jwt: localStorage.getItem("jwtToken") || "",
+      is_loged_in: 0,
+    };
+  }
 
-        <Route path="/signup" element={<SignUp />}>
-        </Route>
+  componentDidMount() {
+    if (this.state.jwt !== "") {
+      console.log("1");
+      this.setState({ is_loged_in: 1 });
+    } else {
+      console.log("0");
+      this.setState({ is_loged_in: 0 });
+    }
+  }
 
-      </Routes>
-    </BrowserRouter>
-    
-  );
+  render() {
+    return (
+      <div>
+        <BrowserRouter>
+          <Background></Background>
+          <Menu></Menu>
+          <Routes>
+            <Route path="/" element={<LandingPage />}></Route>
+
+            <Route path="/contact" element={<Contact />}></Route>
+
+            <Route path="/login" element={<LogIn />}></Route>
+
+            <Route path="/signup" element={<SignUp />}></Route>
+
+            <Route path="/chatscreen" element={<Chatscreen />}></Route>
+
+            <Route path="/history" element={<History />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
-
-
-export default App;

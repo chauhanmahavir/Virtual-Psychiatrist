@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import BackgroundImage from "../assets/Images/Background.png";
 import "./Background.css";
+import ParticleBG from "../ParticleBG/ParticleBG";
 
 export default class Background extends Component {
   render() {
     return (
-      <div className='background_image'>
-        <img className='bg_image' src={BackgroundImage} alt='Background Image'></img>
+      <div className='bg_image'>
+        <ParticleBG />
+        <div className="gradient-01"></div>
+        <div className="gradient-02"></div>
     </div>
     )
   }

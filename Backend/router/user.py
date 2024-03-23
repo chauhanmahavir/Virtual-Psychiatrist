@@ -4,6 +4,7 @@ from fastapi.responses import JSONResponse
 from models.user import User
 from services.db import connect_mongo_db, insert_one_user, search_by_email, update_user_details_by_email
 from services.auth import generate_jwt_token, get_jwt_token, check_jwt_token, get_user_data_by_jwt
+from services.file import create_base_structure
 from schemas.user import Response
 from config.settings import constants
 
@@ -36,7 +37,7 @@ async def login(request: Request) -> JSONResponse:
         user_details = search_by_email(email)
         for i in user_details:
             if i.email == email and i.password == password:
-                # create_base_structure(email=email)
+                create_base_structure(email=email)
                 jwt_token = generate_jwt_token(email=email, password=password)
                 response = Response()
                 response.jwt = str(jwt_token)

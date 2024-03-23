@@ -3,6 +3,8 @@ from datetime import datetime
 
 from config.settings import db_settings
 from models.user import User
+from models.contact import Contact
+from models.chat import Chat
 
 def connect_mongo_db():
     """Connect to the Database
@@ -49,3 +51,27 @@ def check_user_data(email: str, password: str) -> int:
 
 def update_user_details_by_email(body: dict) -> None:
     User.objects(email = body["email"]).update_one(set__name = body["name"], set__password = body["password"])
+
+def insert_message(Object : Contact):
+    """Insert One Message in Database
+
+    Args:
+        Object (Contact): Object of the User
+    """
+    Object.save()
+
+def insert_session(Object : Chat):
+    """Insert One Session in Database
+
+    Args:
+        Object (Chat): Object of the User
+    """
+    Object.save()
+
+def get_all_chats(email : str) -> Chat:
+    chat_data = Chat.objects(email = email)
+    return chat_data
+
+def get_chat_location(email : str, session_id : str) -> str:
+    chat_data = Chat.objects(email = email, session_id = session_id).only('file_location').first()
+    return chat_data.file_location
