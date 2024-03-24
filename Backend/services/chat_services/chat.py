@@ -13,7 +13,7 @@ def tokenization():
     return tokenizer
 
 def load_model():
-    model = GPT2LMHeadModel.from_pretrained(ml_config.MODEL_PATH)
+    model = GPT2LMHeadModel.from_pretrained(ml_config.MODEL_PATH).eval()
     return model
 
 tokenizer = tokenization()

@@ -35,7 +35,7 @@ file_structure = FileStructure()
 class MLModel(BaseSettings):
     DEVICE: str = "cpu"
     TOKENIZATION_MODEL: str = "gpt2"
-    MODEL_PATH: str = "./services/chat_services/New_E6/"
+    MODEL_PATH: str = "./services/chat_services/Models/New_E6"
     MAX_LENGTH: int = 1024
     TEMPERATURE: float = 0.7
     REPETITION_PENALTY: float = 1.0
