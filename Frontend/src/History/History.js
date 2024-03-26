@@ -87,11 +87,11 @@ export default class History extends Component {
         if (response.status === 200) {
           this.setState({ data: response.data.history });
         } else {
-          window.location.href = "/"
+          window.location.href = "/";
         }
       })
       .catch((error) => {
-        window.location.href = "/"
+        window.location.href = "/";
         console.error("There was an error!", error);
       });
   }

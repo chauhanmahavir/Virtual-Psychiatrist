@@ -80,7 +80,7 @@ def get_response(email: str, session_id: str, message: str) -> str:
     chat_location = get_chat_location(email, session_id)
     prepare_context = old_chat(chat_location)
     append_human = prepare_context + " human: " + message
-    prompt = append_human + " gpt: "
+    prompt = append_human + " gpt:"
     res = generate(prompt)
     update_chat_file(chat_location, message, res)
     return res

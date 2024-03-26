@@ -58,7 +58,6 @@ async def get_user_details(request: Request) -> JSONResponse:
     try:
         jwt_token = get_jwt_token(request)
         validate_jwt_token = check_jwt_token(jwt_token)
-        print(validate_jwt_token)
         if validate_jwt_token == 100:
             user_details = get_user_data_by_jwt(jwt_token)
             user_details = search_by_email(email = user_details["email"])
@@ -96,6 +95,31 @@ async def update_user_details(request: Request) -> JSONResponse:
             response.email = body["email"]
             response.password = body["password"]
             response.message = constants.SUCCESSFULLY_PERFORMED
+            return JSONResponse(status_code = status.HTTP_200_OK, content = response.dict(exclude_none = True))
+        elif validate_jwt_token == 101 or validate_jwt_token == 102:
+            response = Response()
+            response.message = constants.INVALID_LOGIN
+            return JSONResponse(status_code = status.HTTP_401_UNAUTHORIZED, content = response.dict(exclude_none = True))
+    except Exception as e:
+        print(e)
+        print(e.__traceback__.tb_lineno)
+        response = Response()
+        response.message = constants.ERROR
+        return JSONResponse(status_code = status.HTTP_400_BAD_REQUEST, content = response.dict(exclude_none = True))
+
+@router.post("/validate_user")
+async def validate_user(request: Request) -> JSONResponse:
+    try:
+        jwt_token = get_jwt_token(request)
+        validate_jwt_token = check_jwt_token(jwt_token)
+        if validate_jwt_token == 100:
+            user_details = get_user_data_by_jwt(jwt_token)
+            user_details = search_by_email(email = user_details["email"])
+            print(user_details)
+            response = Response()
+            response.message = constants.SUCCESSFULLY_PERFORMED
+            response.email = user_details[0].email
+            response.name = user_details[0].name
             return JSONResponse(status_code = status.HTTP_200_OK, content = response.dict(exclude_none = True))
         elif validate_jwt_token == 101 or validate_jwt_token == 102:
             response = Response()
