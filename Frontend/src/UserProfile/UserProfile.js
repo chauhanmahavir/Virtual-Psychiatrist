@@ -17,6 +17,7 @@ export default class UserProfile extends Component {
     this.enable_password = this.enable_password.bind(this);
     this.update_details = this.update_details.bind(this);
     this.set_inputs = this.set_inputs.bind(this);
+    this.go_back = this.go_back.bind(this);
   }
 
   update_details(event) {
@@ -60,6 +61,10 @@ export default class UserProfile extends Component {
     } else {
       this.setState({ show_password: 0 });
     }
+  }
+
+  go_back() {
+    window.history.back();
   }
   componentDidMount() {
     axios
@@ -175,6 +180,7 @@ export default class UserProfile extends Component {
                           className="shadow-lg inline-block self-center bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-xl"
                           name="cancel"
                           type="cancel"
+                          onClick={this.go_back}
                         >
                           Cancel
                         </button>

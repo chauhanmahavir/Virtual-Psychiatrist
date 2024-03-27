@@ -57,11 +57,11 @@ export default class Contact extends Component {
                 <div className="flex flex-col space-y-4">
                   <div className="inline-flex space-x-2 items-center">
                     <ion-icon name="call" className="text-xl"></ion-icon>
-                    <span className="text-xl">+1(437) 429 2728</span>
+                    <span className="text-xl">+1(XXX) XXX XXXX</span>
                   </div>
                   <div className="inline-flex space-x-2 items-center">
                     <ion-icon name="mail" className=" text-xl"></ion-icon>
-                    <span className="text-xl">mahaveerp.chauhan@gmail.com</span>
+                    <span className="text-xl">abc@gmail.com</span>
                   </div>
                   <div className="inline-flex space-x-2 items-center">
                     <ion-icon name="location" className=" text-xl"></ion-icon>

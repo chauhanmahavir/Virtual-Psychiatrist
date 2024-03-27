@@ -33,7 +33,7 @@ export default class UserMenu extends Component {
       <div class="flex flex-col items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
         <button
           type="button"
-          class="flex text-sm bg-transperent rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+          class="flex text-sm bg-transperent rounded-full md:me-0 bg-gray-700 p-1 bg-opacity-80 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
           id="user-menu-button"
           aria-expanded="false"
           data-dropdown-toggle="user-dropdown"
@@ -45,6 +45,9 @@ export default class UserMenu extends Component {
             name="person-circle-outline"
             class="h-9 w-9 rounded-full bg-transparent"
           ></ion-icon>
+          <div className="hidden md:block text-lg justify-center py-1 px-2">
+            {this.props.name}
+          </div>
         </button>
         <div
           className={`z-50 ${this.state.user_profile} absolute my-12 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600`}
@@ -74,7 +77,7 @@ export default class UserMenu extends Component {
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                 onClick={this.toggle_user_profile}
               >
-                History
+                Chat History
               </NavLink>
             </li>
             <li>
