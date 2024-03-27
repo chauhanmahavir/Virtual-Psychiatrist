@@ -13,7 +13,7 @@ def tokenization():
     return tokenizer
 
 def load_model():
-    model = GPT2LMHeadModel.from_pretrained(ml_config.MODEL_PATH).eval()
+    model = GPT2LMHeadModel.from_pretrained(ml_config.MODEL_PATH).eval().to('cuda')
     return model
 
 tokenizer = tokenization()
@@ -43,7 +43,7 @@ def remove_prefix(main_string, substring):
     return main_string[len(substring):]
 
 def generate(prompt: str) -> str:
-    input_ids = tokenizer.encode(prompt.lower(), return_tensors='pt')
+    input_ids = tokenizer.encode(prompt.lower(), return_tensors='pt').to('cuda')
     output_sequences = model.generate(
             input_ids = input_ids,
             max_length = ml_config.MAX_LENGTH,
@@ -80,7 +80,7 @@ def get_response(email: str, session_id: str, message: str) -> str:
     chat_location = get_chat_location(email, session_id)
     prepare_context = old_chat(chat_location)
     append_human = prepare_context + " human: " + message
-    prompt = append_human + " gpt: "
+    prompt = append_human + " gpt:"
     res = generate(prompt)
     update_chat_file(chat_location, message, res)
     return res
