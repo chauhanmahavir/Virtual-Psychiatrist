@@ -28,7 +28,19 @@ export default class Chatscreen extends Component {
   async handleSubmit(event) {
     if (this.state.new_message.length > 0) {
       var updated_chat = this.state.chat;
-      updated_chat.push({ sender: "human", message: this.state.new_message });
+
+      var filter_message = this.state.new_message
+        .replace(/[^\w\s.?!]|_/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+      console.log(filter_message);
+      this.setState({
+        new_message: filter_message,
+      });
+      updated_chat.push({
+        sender: "human",
+        message: filter_message,
+      });
       this.setState({ loading: 1, chat: updated_chat });
       // [To Do] API
       await axios
@@ -36,7 +48,7 @@ export default class Chatscreen extends Component {
           SERVER_URL + "/chat/generate_message",
           {
             session_id: this.state.session_id,
-            message: this.state.new_message,
+            message: filter_message,
           },
           { headers: { jwt_token: this.state.jwt_token } }
         )
@@ -112,6 +124,19 @@ export default class Chatscreen extends Component {
           >
             {this.state.chat.length > 0 ? (
               this.state.chat.map((item, index) => (
+                // <div className="flex flex-col gap-4 py-3" key={index}>
+                //   <div
+                //     key={index}
+                //     className={`border-[#999999] break-words border-2 rounded-xl self-end px-3 py-3 max-w-[80%] ${
+                //       item.sender === "gpt" && this.state.aiStyle
+                //     }`}
+                //   >
+                //     <pre className="whitespace-pre-wrap">
+                //       <span>{item.message}</span>
+                //     </pre>
+                //   </div>
+                // </div>
+
                 <div className="flex flex-col gap-4 py-3" key={index}>
                   <div
                     key={index}
@@ -143,7 +168,7 @@ export default class Chatscreen extends Component {
                 <img src={loader} className="w-8 m-auto" />
               ) : (
                 <>
-                  <textarea
+                  <input
                     onKeyDown={(e) => {
                       if (e.keyCode === 13 && e.shiftKey === false) {
                         e.preventDefault(); // Prevents the default behavior of pressing Enter (e.g., creating a new line)
@@ -155,7 +180,11 @@ export default class Chatscreen extends Component {
                     value={this.state.new_message}
                     type="text"
                     onChange={this.set_new_message}
-                    placeholder="Start Chat with Harmony Bot"
+                    placeholder={
+                      this.state.chat.length > 0
+                        ? "Message Harmony"
+                        : "Start Chat with Harmony"
+                    }
                     autoFocus
                   />
 
@@ -170,7 +199,7 @@ export default class Chatscreen extends Component {
               )}
             </div>
             <p className="flex justify-center text-gray-200 text-sm">
-              Harmony Bot can make Mistakes.
+              Harmony can make Mistakes.
             </p>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import os
 from random import randint
 from datetime import datetime
+import re
 
 from config.settings import file_structure
 
@@ -40,7 +41,7 @@ def get_chat_by_file(path: str) -> str:
     data = []
     for line in file_data:
         sender, message = line.strip().split(':', 1)
-        data.append({"sender": sender.strip(), "message": message.strip()})
+        data.append({"sender": sender.strip(), "message": re.sub(r'\s+', ' ', message.strip())})
     return data
 
 def old_chat(path: str) -> str:

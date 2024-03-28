@@ -2,6 +2,7 @@ import os
 import uuid
 import torch
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
+import re
 
 from config.settings import file_structure, ml_config
 from services.file import create_chat_file, get_chat_by_file, old_chat, update_chat_file
@@ -74,9 +75,11 @@ def generate(prompt: str) -> str:
         response = response[:pad_index]
     print(prompt)
     print(response)
+    response = re.sub(r'[^\w\s.?!]|_', '', response).strip()
     return response
 
 def get_response(email: str, session_id: str, message: str) -> str:
+    message = re.sub(r'[^\w\s.?!]|_', '', message).strip()
     chat_location = get_chat_location(email, session_id)
     prepare_context = old_chat(chat_location)
     append_human = prepare_context + " human: " + message
