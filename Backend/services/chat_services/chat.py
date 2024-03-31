@@ -3,6 +3,7 @@ import uuid
 import torch
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import re
+import gdown
 
 from config.settings import file_structure, ml_config
 from services.file import create_chat_file, get_chat_by_file, old_chat, update_chat_file
@@ -13,7 +14,15 @@ def tokenization():
     tokenizer.add_special_tokens({'pad_token': '[PAD]'})
     return tokenizer
 
+def download_model():
+    if os.path.exists(ml_config.MODEL_PATH):
+        return True
+    else:
+        gdown.download_folder(url = ml_config.MODEL_URL, output = ml_config.MODEL_PATH, quiet = False, use_cookies = False)
+        return True
+
 def load_model():
+    download_model()
     model = GPT2LMHeadModel.from_pretrained(ml_config.MODEL_PATH).eval()
     return model
 
@@ -75,11 +84,11 @@ def generate(prompt: str) -> str:
         response = response[:pad_index]
     print(prompt)
     print(response)
-    response = re.sub(r'[^\w\s.?!]|_', '', response).strip()
+    response = re.sub(r"[^\w\s.?!']|_", '', response).strip()
     return response
 
 def get_response(email: str, session_id: str, message: str) -> str:
-    message = re.sub(r'[^\w\s.?!]|_', '', message).strip()
+    message = re.sub(r"[^\w\s.?!']|_", '', message).strip()
     chat_location = get_chat_location(email, session_id)
     prepare_context = old_chat(chat_location)
     append_human = prepare_context + " human: " + message

@@ -30,7 +30,7 @@ export default class Chatscreen extends Component {
       var updated_chat = this.state.chat;
 
       var filter_message = this.state.new_message
-        .replace(/[^\w\s.?!]|_/g, "")
+        .replace(/[^\w\s.?!']|_/g, "")
         .replace(/\s+/g, " ")
         .trim();
       console.log(filter_message);
@@ -42,7 +42,6 @@ export default class Chatscreen extends Component {
         message: filter_message,
       });
       this.setState({ loading: 1, chat: updated_chat });
-      // [To Do] API
       await axios
         .post(
           SERVER_URL + "/chat/generate_message",
@@ -115,7 +114,7 @@ export default class Chatscreen extends Component {
   render() {
     return (
       <FadeIn>
-        <div className="h-screen space-y-5 sm:px-16 px-2 text-white overflow-hidden flex flex-col">
+        <div className="h-screen space-y-3 sm:px-16 px-2 text-white overflow-hidden flex flex-col">
           {/* Body */}
           <div
             ref={this.parentRef}
@@ -124,19 +123,6 @@ export default class Chatscreen extends Component {
           >
             {this.state.chat.length > 0 ? (
               this.state.chat.map((item, index) => (
-                // <div className="flex flex-col gap-4 py-3" key={index}>
-                //   <div
-                //     key={index}
-                //     className={`border-[#999999] break-words border-2 rounded-xl self-end px-3 py-3 max-w-[80%] ${
-                //       item.sender === "gpt" && this.state.aiStyle
-                //     }`}
-                //   >
-                //     <pre className="whitespace-pre-wrap">
-                //       <span>{item.message}</span>
-                //     </pre>
-                //   </div>
-                // </div>
-
                 <div className="flex flex-col gap-4 py-3" key={index}>
                   <div
                     key={index}
