@@ -87,11 +87,11 @@ export default class History extends Component {
         if (response.status === 200) {
           this.setState({ data: response.data.history });
         } else {
-          window.location.href = "/"
+          window.location.href = "/";
         }
       })
       .catch((error) => {
-        window.location.href = "/"
+        window.location.href = "/";
         console.error("There was an error!", error);
       });
   }
@@ -147,12 +147,12 @@ export default class History extends Component {
                                 }
                                 key={item.session_id}
                               >
-                                <th
+                                <td
                                   scope="row"
                                   class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                                 >
                                   {item.session_name}
-                                </th>
+                                </td>
                                 <td class="px-6 py-4">{item.created_at}</td>
                               </tr>
                             ))

@@ -35,7 +35,7 @@ file_structure = FileStructure()
 class MLModel(BaseSettings):
     DEVICE: str = "cpu"
     TOKENIZATION_MODEL: str = "gpt2"
-    MODEL_PATH: str = "./services/chat_services/Models/New_E6"
+    MODEL_PATH: str = "./services/chat_services/Models/epoch_8"
     MAX_LENGTH: int = 1024
     TEMPERATURE: float = 0.7
     REPETITION_PENALTY: float = 1.0
@@ -43,5 +43,6 @@ class MLModel(BaseSettings):
     TOP_P: float = 0.92
     DO_SAMPLE: bool = True
     NUM_RETURN_SEQUENCES: int = 1
+    MODEL_URL: str = "https://drive.google.com/drive/folders/1C1G-UdutRaoilmi5pDz3XVVBleh9gkl8"
 
 ml_config = MLModel()

@@ -1,67 +1,66 @@
 .contact_container {
-    height: 700px;
-    width: 70%;
-    display: block;
-    align-items: center;
-    background-color: #00000033;
-    margin: 8% auto;
-    border-radius: 100px;
-    z-index: -1;
+  height: 700px;
+  width: 70%;
+  display: block;
+  align-items: center;
+  background-color: #00000033;
+  margin: 8% auto;
+  border-radius: 100px;
+  z-index: -1;
 }
 
 .contact_title {
-    text-align: center;
-    font-size: 60px;
-    padding-top: 20px;
+  text-align: center;
+  font-size: 60px;
+  padding-top: 20px;
 }
 
 .name_input {
-    width: 500px;
-    height: 30px;
-    padding: 20px;
-    border-radius: 50px;
-    font-size: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-    background-color: #ffffffba;
-    color: black;
-    font-family: "Source-Code-Pro-Regular";
-    border: none;
+  width: 500px;
+  height: 30px;
+  padding: 20px;
+  border-radius: 50px;
+  font-size: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #ffffffba;
+  color: black;
+  font-family: "Source-Code-Pro-Regular";
+  border: none;
 }
 
 .contact_form_container {
-    display: flex;
+  display: flex;
 }
 
 .contact_form_image {
-    width: 310px;
-    padding-top: 55px;
-    float: left;
-    width: 50%;
-    transform: translateY(15%) translateX(15%);
+  width: 310px;
+  padding-top: 55px;
+  float: left;
+  width: 50%;
+  transform: translateY(15%) translateX(15%);
 }
 
 .contact_form_name {
-    margin: 50px;
-    
+  margin: 50px;
 }
 
 .message {
-    height: 150px;
-    text-align: left;
+  height: 150px;
+  text-align: left;
 }
 
 *:focus {
-    outline: none;
+  outline: none;
 }
 
 .contact_form_button {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .name_input:focus {
-    border: 2px solid #5371d0;
-    transition-duration: 0.2s;
+  border: 2px solid #5371d0;
+  transition-duration: 0.2s;
 }

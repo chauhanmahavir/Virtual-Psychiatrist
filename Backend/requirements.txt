@@ -5,3 +5,4 @@ PyJWT
 pydantic
 torch
 transformers
+gdown

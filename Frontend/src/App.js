@@ -10,25 +10,16 @@ import Chatscreen from "./Chatscreen/Chatscreen";
 
 import React, { Component } from "react";
 import History from "./History/History";
+import UserProfile from "./UserProfile/UserProfile";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      jwt: localStorage.getItem("jwtToken") || "",
+      jwt_token: localStorage.getItem("jwtToken") || "",
       is_loged_in: 0,
     };
-  }
-
-  componentDidMount() {
-    if (this.state.jwt !== "") {
-      console.log("1");
-      this.setState({ is_loged_in: 1 });
-    } else {
-      console.log("0");
-      this.setState({ is_loged_in: 0 });
-    }
   }
 
   render() {
@@ -49,6 +40,8 @@ export default class App extends Component {
             <Route path="/chatscreen" element={<Chatscreen />}></Route>
 
             <Route path="/history" element={<History />}></Route>
+
+            <Route path="/profile" element={<UserProfile />}></Route>
           </Routes>
         </BrowserRouter>
       </div>

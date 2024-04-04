@@ -11,10 +11,20 @@ export default class LogIn extends Component {
       email: "",
       password: "",
       jwt: localStorage.getItem("jwtToken") || "",
+      show_password: 0,
     };
 
     this.check_login = this.check_login.bind(this);
     this.set_input = this.set_input.bind(this);
+    this.enable_password = this.enable_password.bind(this);
+  }
+
+  enable_password() {
+    if (this.state.show_password == 0) {
+      this.setState({ show_password: 1 });
+    } else {
+      this.setState({ show_password: 0 });
+    }
   }
 
   check_login(event) {
@@ -80,12 +90,12 @@ export default class LogIn extends Component {
                         ></input>
                       </div>
 
-                      <div>
+                      <div className="relative">
                         <label for="" className="text-xl">
                           Password
                         </label>
                         <input
-                          type="password"
+                          type={this.state.show_password ? "text" : "password"}
                           placeholder="**********"
                           name="password"
                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}"
@@ -93,6 +103,23 @@ export default class LogIn extends Component {
                           onChange={this.set_input}
                           required
                         ></input>
+                        <button
+                          type="button"
+                          className="absolute inset-y-0 right-0 px-3 py-2"
+                          onClick={this.enable_password}
+                        >
+                          {this.state.show_password ? (
+                            <ion-icon
+                              name="eye-off-outline"
+                              class="h-8 w-8 mt-8"
+                            ></ion-icon>
+                          ) : (
+                            <ion-icon
+                              name="eye-outline"
+                              class="h-8 w-8 mt-8"
+                            ></ion-icon>
+                          )}
+                        </button>
                       </div>
 
                       <button
