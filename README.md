@@ -1,7 +1,7 @@
 # Virtual-Psychiatrist
 Virtual Psychiatrist
 
-### Instroduction
+### Introduction
 <p style="text-align: justify;">
 The use of artificial intelligence (AI) in healthcare has revolutionized the provision of mental health support in recent years. Natural language processing (NLP)-based chatbots have become powerful tools for offering timely support. This study looks on the development, application, and evaluation of a GPT-2-focused chatbot that was created with psychological considerations in mind. With the help of a wealth of textual data from Hugging Face and other websites, the chatbot can effectively handle user requests because it has been trained on a wide range of contextually appropriate content. The methodical approach covered in this article comprises approaches for data extraction, cleaning, visualization, training, and assessment. A portion of this procedure is evaluating language coherence and semantic understanding using metrics like as DistilBERT Cosine Similarity. Additionally, the integration of FastAPI for backend services, MongoDB for data storage, and ReactJS for front-end development ensures user-friendly interfaces, accessible communication, and efficient data management. These elements improve efficacy and transparency in the mental health services sector. The chatbot's name is "Harmony". Its purview encompasses offering coping strategies, counseling for stress, anxiety, and depression, and serving as a point of contact for mental health and emergency support. Traditional therapy is improved by continuing to monitor and support the patient. 
 </p>
