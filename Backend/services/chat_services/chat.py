@@ -70,8 +70,6 @@ def generate(prompt: str) -> str:
         )
     output_sequence = [token.item() for token in output_sequences[0] if token is not None]
     response = tokenizer.decode(output_sequence)
-    print(prompt)
-    print(response)
     response = remove_prefix(response, prompt)
     gpt_index = response.find("gpt")
     human_index = response.find("human")
@@ -82,8 +80,6 @@ def generate(prompt: str) -> str:
     if "[PAD]" in response:
         pad_index = response.index("[PAD]")
         response = response[:pad_index]
-    print(prompt)
-    print(response)
     response = re.sub(r"[^\w\s.?!']|_", '', response).strip()
     return response
 

@@ -9,7 +9,8 @@ from models.chat import Chat
 def connect_mongo_db():
     """Connect to the Database
     """
-    connect(db=db_settings.db_name, host=db_settings.db_host, port=db_settings.db_port)
+    # connect(db=db_settings.db_name, host=db_settings.db_host, port=db_settings.db_port)
+    connect(db=db_settings.db_name, host = db_settings.db_server)
 
 def insert_one_user(Object : User):
     """Insert One Record in Database

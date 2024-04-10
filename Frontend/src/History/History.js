@@ -14,6 +14,7 @@ export default class History extends Component {
       button_title: "New Chat",
       jwt_token: localStorage.getItem("jwtToken") || "",
       session_name: "",
+      button: false,
     };
 
     this.show_chat_name = this.show_chat_name.bind(this);
@@ -29,6 +30,7 @@ export default class History extends Component {
 
   create_session_id(event) {
     event.preventDefault();
+    this.setState({ button: true });
     axios
       .post(
         SERVER_URL + "/chat/create_chat_session",
@@ -194,7 +196,8 @@ export default class History extends Component {
                           <button
                             type="submit"
                             name="submit"
-                            className="shadow-lg self-center bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-xl mr-10"
+                            className="shadow-lg self-center bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-xl mr-10 disabled:bg-gray-50 disabled:text-gray-600 disabled:bg-opacity-70"
+                            disabled={this.state.button}
                           >
                             Start
                           </button>

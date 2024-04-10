@@ -37,7 +37,6 @@ def create_chat_file(path: str) -> str:
 
 def get_chat_by_file(path: str) -> str:
     file_data = open(path, "r").readlines()[1:]
-    print(file_data)
     data = []
     for line in file_data:
         sender, message = line.strip().split(':', 1)

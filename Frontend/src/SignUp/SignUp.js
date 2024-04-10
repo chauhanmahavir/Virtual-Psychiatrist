@@ -13,6 +13,7 @@ export default class SignUp extends Component {
       password: "",
       confirm_password: "",
       show_password: 0,
+      button: false,
     };
 
     this.sign_up = this.sign_up.bind(this);
@@ -42,6 +43,7 @@ export default class SignUp extends Component {
 
   sign_up(event) {
     event.preventDefault();
+    this.setState({ button: true });
     const json_data = this.state;
     if (json_data.password === json_data.confirm_password) {
       axios
@@ -165,9 +167,10 @@ export default class SignUp extends Component {
                       </div>
 
                       <button
-                        className="shadow-lg inline-block self-center bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-xl"
+                        className="shadow-lg inline-block self-center bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-xl disabled:bg-gray-50 disabled:text-gray-600 disabled:bg-opacity-70"
                         name="submit"
                         type="submit"
+                        disabled={this.state.button}
                       >
                         Sign Up
                       </button>

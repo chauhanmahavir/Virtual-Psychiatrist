@@ -11,6 +11,7 @@ export default class Contact extends Component {
       name: "",
       email: "",
       message: "",
+      button: false,
     };
 
     this.send_message = this.send_message.bind(this);
@@ -19,6 +20,7 @@ export default class Contact extends Component {
 
   send_message(event) {
     event.preventDefault();
+    this.setState({ button: true });
     const json_data = this.state;
     axios
       .post(SERVER_URL + "/contact/message", json_data)
@@ -61,7 +63,7 @@ export default class Contact extends Component {
                   </div>
                   <div className="inline-flex space-x-2 items-center">
                     <ion-icon name="mail" className=" text-xl"></ion-icon>
-                    <span className="text-xl">abc@gmail.com</span>
+                    <span className="text-xl">contact@harmony.com</span>
                   </div>
                   <div className="inline-flex space-x-2 items-center">
                     <ion-icon name="location" className=" text-xl"></ion-icon>
@@ -136,7 +138,10 @@ export default class Contact extends Component {
                         required
                       ></textarea>
                     </div>
-                    <button className="shadow-lg inline-block self-end bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-xl">
+                    <button
+                      className="shadow-lg inline-block self-end bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-xl disabled:bg-gray-50 disabled:text-gray-600 disabled:bg-opacity-70"
+                      disabled={this.state.button}
+                    >
                       Send Message
                     </button>
                   </form>

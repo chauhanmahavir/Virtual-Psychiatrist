@@ -12,6 +12,7 @@ export default class LogIn extends Component {
       password: "",
       jwt: localStorage.getItem("jwtToken") || "",
       show_password: 0,
+      button: false,
     };
 
     this.check_login = this.check_login.bind(this);
@@ -29,6 +30,7 @@ export default class LogIn extends Component {
 
   check_login(event) {
     event.preventDefault();
+    this.setState({ button: true });
     const json_data = this.state;
     if (json_data.email !== "" && json_data.password !== "") {
       axios
@@ -125,7 +127,8 @@ export default class LogIn extends Component {
                       <button
                         type="submit"
                         name="submit"
-                        className="shadow-lg inline-block self-center bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-xl"
+                        className="shadow-lg inline-block self-center bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-xl disabled:bg-gray-50 disabled:text-gray-600 disabled:bg-opacity-70"
+                        disabled={this.state.button}
                       >
                         Log In
                       </button>
