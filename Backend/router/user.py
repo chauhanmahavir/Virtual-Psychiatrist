@@ -85,7 +85,6 @@ async def update_user_details(request: Request) -> JSONResponse:
         body = await request.json()
         jwt_token = get_jwt_token(request)
         validate_jwt_token = check_jwt_token(jwt_token)
-        print(validate_jwt_token)
         if validate_jwt_token == 100:
             user_details = get_user_data_by_jwt(jwt_token)
             user_details = search_by_email(email = user_details["email"])
@@ -115,7 +114,6 @@ async def validate_user(request: Request) -> JSONResponse:
         if validate_jwt_token == 100:
             user_details = get_user_data_by_jwt(jwt_token)
             user_details = search_by_email(email = user_details["email"])
-            print(user_details)
             response = Response()
             response.message = constants.SUCCESSFULLY_PERFORMED
             response.email = user_details[0].email

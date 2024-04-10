@@ -13,6 +13,7 @@ export default class UserProfile extends Component {
       email: "",
       password: "",
       show_password: 0,
+      button: false,
     };
     this.enable_password = this.enable_password.bind(this);
     this.update_details = this.update_details.bind(this);
@@ -22,6 +23,7 @@ export default class UserProfile extends Component {
 
   update_details(event) {
     event.preventDefault();
+    this.setState({ button: true });
     const json_data = {
       name: this.state.name,
       email: this.state.email,
@@ -169,9 +171,10 @@ export default class UserProfile extends Component {
 
                       <div className="flex flex-row justify-center">
                         <button
-                          className="shadow-lg inline-block self-center bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-xl mr-10"
+                          className="shadow-lg inline-block self-center bg-cyan-700 text-white font-bold rounded-lg px-6 py-2 uppercase text-xl mr-10 disabled:bg-gray-50 disabled:text-gray-600 disabled:bg-opacity-70"
                           name="submit"
                           type="submit"
+                          disabled={this.state.button}
                         >
                           Update
                         </button>

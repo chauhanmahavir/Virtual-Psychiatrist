@@ -4,6 +4,9 @@ class DBSettings(BaseSettings):
     db_name: str = "virtual-psychiatrist"
     db_host: str = "localhost"
     db_port: int = 27017
+    db_username: str = "<db_username>"
+    db_password: str = "<db_password>"
+    db_server: str = f"<db_url>"
 
 db_settings = DBSettings()
 
