@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "11899d75-e064-48d3-a21f-8f2d5b111c86",
+		"name": "virtual-psychiatrist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"hello\",\n    \"email\":\"Hloo@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/user/signup",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"test@gmail.com\",\r\n    \"password\" : \"Test@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/user/login",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "jwt_token",
+								"value": "{{JWT_TOKEN}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/user/get_user_details",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"user",
+								"get_user_details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "jwt_token",
+								"value": "{{JWT_TOKEN}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"mahaveer\",\r\n    \"email\" : \"Hloo@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/user/update_user_details",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"user",
+								"update_user_details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "jwt_token",
+								"value": "{{JWT_TOKEN}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/user/validate_user",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"user",
+								"validate_user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact",
+			"item": [
+				{
+					"name": "Save Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"hello\",\n    \"email\":\"Hloo@gmail.com\",\n    \"message\": \"Hellow World\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/contact/message",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"contact",
+								"message"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "Create Session",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "jwt_token",
+								"value": "{{JWT_TOKEN}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"session_name\" : \"hello world\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/chat/create_chat_session",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"chat",
+								"create_chat_session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Session of Chat",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "jwt_token",
+								"value": "{{JWT_TOKEN}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {},
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/chat/get_session_history",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"chat",
+								"get_session_history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Chat History By Session ID",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "jwt_token",
+								"value": "{{JWT_TOKEN}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"session_id\" : \"eed8a3c488fe4be28b0eef067221c85f\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/chat/get_chat_by_session",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"chat",
+								"get_chat_by_session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "jwt_token",
+								"value": "{{JWT_TOKEN}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"session_id\" : \"27b6bff124bb4e6392e5a1a1a7b404d7\",\n    \"message\" : \"hi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/chat/generate_message",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"chat",
+								"generate_message"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "SERVER_URL",
+			"value": "http://18.188.232.196:8000",
+			"type": "default"
+		},
+		{
+			"key": "JWT_TOKEN",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
