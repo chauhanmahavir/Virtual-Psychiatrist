@@ -55,10 +55,14 @@ The use of artificial intelligence (AI) in healthcare has revolutionized the pro
 1. **Landing Page**
    ![Harmony Landing Page](./Photos/landingpage.jpg)
 3. **Sign Up Page**
-4. **Login Page**
-5. **Chat History**
-6. **Chat Screen and Conversation**
-7. **Evaluation Results**
+   ![Harmony Sign Up Page](./Photos/signuppage.jpg)
+5. **Login Page**
+   ![Harmony Login Page](./Photos/loginpage.jpg)
+7. **Chat History**
+   ![Harmony Chat History Page](./Photos/chathistory.jpg)
+9. **Chat Screen and Conversation**
+    ![Harmony Chat Conversation Page](./Photos/chatconversation.jpg)
+11. **Evaluation Results**
     - Evaluation Metrics: Comparing responses from ChatGPT-4 and the proposed model.
       Intent             | BLUE        | ROUGE     | Cosine Similarity
       ------------------ | ----------- | --------- | -------------
