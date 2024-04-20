@@ -47,18 +47,23 @@ The use of artificial intelligence (AI) in healthcare has revolutionized the pro
     - Enhance the Beginning of the Conversation with Greetings
     - Merge Under Specific Format
 3.  **Data Exploration and Visualization**
+
     - Unigrams and Bigrams
 
       ![Unigram and Bigrams](./assets/Unigram_Bigram.png)
+
     - Word Cloud
 
       ![Word Cloud](./assets/Wordcloud.png)
+
     - Latent Dirichlet Allocation (LDA)
 
       ![Latent Dirichlet Allocation](./assets/LDA.png)
+
     - Intent Classification
 
       ![Intent Classification](./assets/Intent_classification.png)
+
 4.  **Methods Used**
     - Tokenization
     - Model Training
@@ -91,6 +96,8 @@ The use of artificial intelligence (AI) in healthcare has revolutionized the pro
      **Greeting** | 0.018578 | 0.096368 | 0.479845
      **Social Anxity** | 0.009661 | 0.119167 | 0.596898
      **Others** | 0.013368 | 0.154787 | 0.507061
+   - Average Score of Evaluation Metrics
+     ![Average Score of Evaluation Metrics](./assets/Average_Scores_for_Evaluation_Metrics.jpeg)
 
 ---
 
