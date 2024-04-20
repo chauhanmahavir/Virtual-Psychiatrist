@@ -1,6 +1,8 @@
 # Virtual-Psychiatrist
 
-Virtual Psychiatrist
+<div align="center">
+	<img width="50%" height="50%" src="./assets/Logo.png">
+</div>
 
 ---
 
@@ -46,9 +48,17 @@ The use of artificial intelligence (AI) in healthcare has revolutionized the pro
     - Merge Under Specific Format
 3.  **Data Exploration and Visualization**
     - Unigrams and Bigrams
+
+      ![Unigram and Bigrams](./assets/Unigram_Bigram.png)
     - Word Cloud
+
+      ![Word Cloud](./assets/Wordcloud.png)
     - Latent Dirichlet Allocation (LDA)
+
+      ![Latent Dirichlet Allocation](./assets/LDA.png)
     - Intent Classification
+
+      ![Intent Classification](./assets/Intent_classification.png)
 4.  **Methods Used**
     - Tokenization
     - Model Training
