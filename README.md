@@ -48,17 +48,18 @@ The use of artificial intelligence (AI) in healthcare has revolutionized the pro
     - Model Evaluation and Testing
         - BLEU Score
         - ROUGE Score
-        - DistilBERT Score
+        - DistilBERT Cosine Similarity Score
 
 - - - -
 ### Result
 1. **Landing Page**
-2. **Sign Up Page**
-3. **Login Page**
-4. **Chat History**
-5. **Chat Screen and Conversation**
-6. **Evaluation Results**
-    - Evaluation Matrix
+   ![Harmony Landing Page]()
+3. **Sign Up Page**
+4. **Login Page**
+5. **Chat History**
+6. **Chat Screen and Conversation**
+7. **Evaluation Results**
+    - Evaluation Metrics: Comparing responses from ChatGPT-4 and the proposed model.
       Intent             | BLUE        | ROUGE     | Cosine Similarity
       ------------------ | ----------- | --------- | -------------
       **Stress**         | 0.013695    | 0.173437  | 0.651334
