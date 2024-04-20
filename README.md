@@ -53,7 +53,7 @@ The use of artificial intelligence (AI) in healthcare has revolutionized the pro
 - - - -
 ### Result
 1. **Landing Page**
-   ![Harmony Landing Page]()
+   ![Harmony Landing Page](./Photos/landingpage.jpg)
 3. **Sign Up Page**
 4. **Login Page**
 5. **Chat History**
